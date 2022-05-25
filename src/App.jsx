@@ -21,12 +21,12 @@ const App = () => {
     <ThemeProvider theme={darkTheme}>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={
+          <Route path='/login' element={<Login />} />
+          <Route path='*' element={
             <RequireAuth loginPath='/login'>
-              <Home></Home>
+              <Home />
             </RequireAuth>
           } />
-          <Route path='/login' element={<Login />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>

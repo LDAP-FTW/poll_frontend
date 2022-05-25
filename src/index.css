@@ -15,32 +15,6 @@ code {
     monospace;
 }
 
-ul {
-  display: flex;
-  flex-direction: column;
-  margin-left: 0px;
-  gap: 1em;
-}
-
-li {
-  display: flex;
-  align-items: center;
-  list-style-type: none;
-  padding-left: 1em;
-  width: 60%;
-  height: 2em;
-  background: hsl(226, 13%, 36%);
-  border: 1px solid navajowhite;
-  border-radius: .5em;
-  cursor: pointer;
-}
-
-#list {
-  display: flex;
-  flex-direction: column;
-  margin-top: 1em;
-}
-
 .right {
   font-family: "Roboto","Helvetica","Arial",sans-serif;
   color: green;
@@ -49,6 +23,10 @@ li {
   line-height: 1.4375em;
   letter-spacing: 0.00938em;
   padding: 0;
+}
+
+.pollCard {
+  cursor: pointer;
 }
 
 .wrong {
