@@ -4,6 +4,7 @@ import { Container } from "@mui/material";
 import Poll from "./Poll";
 import PollList from "./PollList";
 import { Route, Routes } from "react-router-dom";
+import Create from "./Create";
 
 const Home = () => {
     return (
@@ -13,6 +14,7 @@ const Home = () => {
                 <Routes>
                     <Route path="/poll">
                         <Route index element={<PollList />} />
+                        <Route path="create" element={<Create />} />
                         <Route path=":pollID" element={<Poll />} />
                     </Route>
                 </Routes>
