@@ -1,48 +1,60 @@
 import { Button, Card, CardContent, Container, FormControl, FormControlLabel, FormLabel, List, ListItem, Radio, RadioGroup, Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useAuthUser } from 'react-auth-kit';
+import { useNavigate, useParams } from 'react-router-dom'
+import Question from '../components/Question';
 
 const Poll = () => {
     const [poll, setPoll] = useState();
+    const [answers, setAnswers] = useState();
     const { pollID } = useParams();
+    const auth = useAuthUser();
+    const navigate = useNavigate();
+
+    const uploadAnswer = () => {
+        const options = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                "poll": pollID,
+                "user": auth().user.username,
+                "answers": answers
+            })
+        }
+
+        fetch("/api/answers", options).then(res => res.ok).then(status => {alert(status); navigate(-1)});
+    }
+
+    const updateAnswers = (question, value) => {
+        setAnswers([...answers].map(answer => {
+            if(answer.question == question) {
+                return {
+                    ...answer,
+                    "answer": value
+                }
+            } else {
+                return answer;
+            }
+        }))
+    }
 
     useEffect(() => {
-        fetch(`/api/poll/${pollID}`).then(res => res.json()).then(data => setPoll(data));
+        fetch(`/api/poll/${pollID}`).then(res => res.json()).then(data => {
+            setPoll(data);
+            setAnswers(data.questions.map(question => {return {"question": question, "answer": ""}}));
+        });
     }, [pollID])
 
     return (
         <Container>
             <Typography sx={{ mb: 2 }} variant='h5'>{poll && poll.title}</Typography>
             {poll && poll.questions.map((question, id) =>
-                <Card sx={{ my: 2 }} key={id}>
-                    <CardContent>
-                        <Typography variant='h5'>
-                            {question}
-                        </Typography>
-                        <div style={{ "display": "flex", "flexDirection": "row", "justifyContent": "space-between", "alignItems": "center" }}>
-                            <Typography variant='p'>Sehr Zufrieden</Typography>
-                            <FormControl>
-                                <RadioGroup
-                                    style={{ "display": "flex", "flexDirection": "row", "justifyContent": "center", "alignItems": "center", "gap": "3vw" }}
-                                    aria-labelledby="demo-radio-buttons-group-label"
-                                    defaultValue="female"
-                                    name="radio-buttons-group"
-                                    row
-                                >
-                                    <FormControlLabel value="1" control={<Radio />} label="" />
-                                    <FormControlLabel value="2" control={<Radio />} label="" />
-                                    <FormControlLabel value="3" control={<Radio />} label="" />
-                                    <FormControlLabel value="4" control={<Radio />} label="" />
-                                    <FormControlLabel value="5" control={<Radio />} label="" />
-                                </RadioGroup>
-                            </FormControl>
-                            <Typography variant='p'>Sehr Unzufrieden</Typography>
-                        </div>
-                    </CardContent>
-                </Card>
+                <Question question={question} setAnswers={updateAnswers} key={id} />
             )}
             <div style={{ "width": "100%", "display": "flex", "justifyContent": "center" }}>
-                <Button sx={{ mt: 2 }} variant="contained">Submit</Button>
+                <Button sx={{ mt: 2 }} onClick={uploadAnswer} variant="contained">Submit</Button>
             </div>
         </Container>
     )
