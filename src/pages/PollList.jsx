@@ -14,7 +14,6 @@ const PollList = () => {
 
     useEffect(() => {
         fetch("/api/poll").then(res => res.json()).then(polls => setPolls(polls))
-        //fetch("https://opentdb.com/api.php?amount=10").then(res => res.json()).then(poll => setPoll(poll.results))
     }, [])
 
     return (
