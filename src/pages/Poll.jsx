@@ -1,7 +1,7 @@
-import { Box, Button, CircularProgress, Container, Modal, Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
-import { useAuthUser } from 'react-auth-kit';
 import { useNavigate, useParams } from 'react-router-dom'
+import { Box, Button, CircularProgress, Container, Modal, Typography } from '@mui/material'
+import { useAuthUser } from 'react-auth-kit';
 import Question from '../components/Question';
 
 const Poll = () => {

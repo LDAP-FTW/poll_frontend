@@ -1,6 +1,6 @@
-import { Card, CardContent, Grid, Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { Card, CardContent, Grid, Typography } from '@mui/material'
 
 const PollList = () => {
     const [polls, setPolls] = useState(null);

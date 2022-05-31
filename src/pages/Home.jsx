@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
-import ResponsiveAppBar from "../components/ResponsiveAppBar";
+import { Route, Routes } from "react-router-dom";
 import { Container } from "@mui/material";
+import ResponsiveAppBar from "../components/ResponsiveAppBar";
 import Poll from "./Poll";
 import PollList from "./PollList";
 import Evaluation from "./Evaluation";
-import { Route, Routes } from "react-router-dom";
 import Create from "./Create";
 
 const Home = () => {

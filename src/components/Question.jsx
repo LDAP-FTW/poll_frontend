@@ -1,5 +1,5 @@
-import { Box, Card, CardContent, FormControl, FormControlLabel, Radio, RadioGroup, Typography } from '@mui/material'
 import React, { useState } from 'react'
+import { Box, Card, CardContent, Radio, RadioGroup, Typography } from '@mui/material'
 
 const Question = ({ question, setAnswers }) => {
     const [value, setValue] = useState("");
