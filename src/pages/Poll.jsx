@@ -1,4 +1,4 @@
-import { Button, Card, CardContent, Container, FormControl, FormControlLabel, FormLabel, List, ListItem, Radio, RadioGroup, Typography } from '@mui/material'
+import { Box, Button, CircularProgress, Container, Modal, Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { useAuthUser } from 'react-auth-kit';
 import { useNavigate, useParams } from 'react-router-dom'
@@ -49,13 +49,16 @@ const Poll = () => {
 
     return (
         <Container>
-            <Typography sx={{ mb: 2 }} variant='h5'>{poll && poll.title}</Typography>
+            {poll && <Typography sx={{ mb: 2 }} variant='h5'>{poll.title}</Typography>}
             {poll && poll.questions.map((question, id) =>
                 <Question question={question} setAnswers={updateAnswers} key={id} />
             )}
-            <div style={{ "width": "100%", "display": "flex", "justifyContent": "center" }}>
-                <Button sx={{ mt: 2 }} onClick={uploadAnswer} variant="contained">Submit</Button>
-            </div>
+            {poll &&
+                <Box sx={{ width: "100%", display: "flex", justifyContent: "center" }}>
+                    <Button sx={{ mt: 2 }} onClick={uploadAnswer} variant="contained">Submit</Button>
+                </Box>
+            }
+            {!poll && <Modal open={true} sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}><CircularProgress /></Modal>}
         </Container>
     )
 }
