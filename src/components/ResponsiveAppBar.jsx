@@ -15,7 +15,7 @@ import AdbIcon from '@mui/icons-material/Adb';
 import { useAuthUser, useSignOut } from 'react-auth-kit';
 import { useNavigate } from 'react-router-dom';
 
-const pages = [{'title': 'Umfragen', 'link': 'poll'}, {'title': 'Erstellen', 'link': 'poll/create'}, {'title': 'Welt', 'link': 'poll3'}];
+const pages = [{'title': 'Umfragen', 'link': 'poll'}, {'title': 'Erstellen', 'link': 'poll/create'}, {'title': 'Auswertung', 'link': 'poll/eval'}];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const ResponsiveAppBar = () => {
