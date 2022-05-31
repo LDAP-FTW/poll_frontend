@@ -14,27 +14,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-.right {
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
-  color: green;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.4375em;
-  letter-spacing: 0.00938em;
-  padding: 0;
-}
-
-.pollCard {
-  cursor: pointer;
-}
-
-.wrong {
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
-  color: red;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.4375em;
-  letter-spacing: 0.00938em;
-  padding: 0;
-}

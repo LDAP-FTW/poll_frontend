@@ -20,7 +20,7 @@ const PollList = () => {
     return (
         <Grid>
             {polls && Object.entries(polls).map(([id, poll]) =>
-                <Card className="pollCard" sx={{ my: 2 }} onClick={() => choosePoll(id)} key={id}>
+                <Card sx={{ my: 2, cursor: "pointer" }} onClick={() => choosePoll(id)} key={id}>
                     <CardContent>
                         <Typography variant="h5">
                             {poll.title}
