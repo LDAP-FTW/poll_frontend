@@ -13,7 +13,7 @@ const Question = ({ question, setAnswers }) => {
         <Card sx={{ my: 2 }}>
             <CardContent>
                 <Typography variant='h5'>
-                    {question}
+                    {question.text}
                 </Typography>
                 <RadioGroup
                     sx={{ width: "100%", display: "flex", flexDirection: "row", justifyContent: "space-around", alignItems: "center" }}
@@ -30,8 +30,8 @@ const Question = ({ question, setAnswers }) => {
                     <Radio value="5" />
                 </RadioGroup>
                 <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
-                    <Typography sx={{ textAlign: "start", wordSpacing: "100vw" }} variant='p'>Sehr Zufrieden</Typography>
-                    <Typography sx={{ textAlign: "end", wordSpacing: "100vw" }} variant='p'>Sehr Unzufrieden</Typography>
+                    <Typography sx={{ textAlign: "start", wordSpacing: "100vw" }} variant='p'>{question.answers.min}</Typography>
+                    <Typography sx={{ textAlign: "end", wordSpacing: "100vw" }} variant='p'>{question.answers.max}</Typography>
                 </Box>
             </CardContent>
         </Card>

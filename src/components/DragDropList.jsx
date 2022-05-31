@@ -44,8 +44,8 @@ const DragDropList = ({ list, setList }) => {
                     <Box
                         ref={provided.innerRef}
                         {...provided.droppableProps}
-                        sx={{ display: "flex", flexDirection: "column", my: 2 }}>
-                        {list.map((text, id) =>
+                        sx={{ display: "flex", flexDirection: "column" }}>
+                        {list.map((item, id) =>
                             <Draggable key={id} draggableId={`${id}`} index={id}>
                                 {(provided) =>
                                     <Box
@@ -54,7 +54,7 @@ const DragDropList = ({ list, setList }) => {
                                         {...provided.draggableProps}
                                         {...provided.dragHandleProps}
                                     >
-                                        <Typography sx={{ overflow: "hidden" }} variant='p'>{text}</Typography>
+                                        <Typography sx={{ overflow: "hidden" }} variant='p'>{item.text}; {item.answers.min}; {item.answers.max}</Typography>
                                         <Button variant='outlined' onClick={() => deleteQuestion(id)}>Delete</Button>
                                     </Box>
                                 }

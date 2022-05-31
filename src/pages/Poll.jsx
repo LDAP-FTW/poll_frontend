@@ -49,7 +49,14 @@ const Poll = () => {
 
     return (
         <Container>
-            {poll && <Typography sx={{ mb: 2 }} variant='h5'>{poll.title}</Typography>}
+            {poll && <Typography sx={{ mb: 2 }} variant='h4'>{poll.title}</Typography>}
+            {poll && 
+                <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
+                    <Typography variant='p'>Lehrer:in<br/>{poll.salutation} {poll.teacher}</Typography>
+                    <Typography sx={{ textAlign: "center" }} variant='p'>Klasse<br/>{poll.class}</Typography>
+                    <Typography sx={{ textAlign: "end" }} variant='p'>Ablaufdatum<br/>{new Date(poll.expiration).toLocaleDateString()}</Typography>
+                </Box>
+            }
             {poll && poll.questions.map((question, id) =>
                 <Question question={question} setAnswers={updateAnswers} key={id} />
             )}
