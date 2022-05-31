@@ -1,4 +1,4 @@
-import { Card, CardContent, FormControl, FormControlLabel, Radio, RadioGroup, Typography } from '@mui/material'
+import { Box, Card, CardContent, FormControl, FormControlLabel, Radio, RadioGroup, Typography } from '@mui/material'
 import React, { useState } from 'react'
 
 const Question = ({ question, setAnswers }) => {
@@ -15,26 +15,24 @@ const Question = ({ question, setAnswers }) => {
                 <Typography variant='h5'>
                     {question}
                 </Typography>
-                <div style={{ "display": "flex", "flexDirection": "row", "justifyContent": "space-between", "alignItems": "center" }}>
-                    <Typography variant='p'>Sehr Zufrieden</Typography>
-                    <FormControl>
-                        <RadioGroup
-                            style={{ "display": "flex", "flexDirection": "row", "justifyContent": "center", "alignItems": "center", "gap": "3vw" }}
-                            aria-labelledby="demo-radio-buttons-group-label"
-                            value={value}
-                            onChange={changeRadioAnswer}
-                            name="radio-buttons-group"
-                            row
-                        >
-                            <FormControlLabel value="1" control={<Radio />} label="" />
-                            <FormControlLabel value="2" control={<Radio />} label="" />
-                            <FormControlLabel value="3" control={<Radio />} label="" />
-                            <FormControlLabel value="4" control={<Radio />} label="" />
-                            <FormControlLabel value="5" control={<Radio />} label="" />
-                        </RadioGroup>
-                    </FormControl>
-                    <Typography variant='p'>Sehr Unzufrieden</Typography>
-                </div>
+                <RadioGroup
+                    sx={{ width: "100%", display: "flex", flexDirection: "row", justifyContent: "space-around", alignItems: "center" }}
+                    aria-labelledby="demo-radio-buttons-group-label"
+                    value={value}
+                    onChange={changeRadioAnswer}
+                    name="radio-buttons-group"
+                    row
+                >
+                    <Radio value="1" />
+                    <Radio value="2" />
+                    <Radio value="3" />
+                    <Radio value="4" />
+                    <Radio value="5" />
+                </RadioGroup>
+                <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
+                    <Typography sx={{ textAlign: "start", wordSpacing: "100vw" }} variant='p'>Sehr Zufrieden</Typography>
+                    <Typography sx={{ textAlign: "end", wordSpacing: "100vw" }} variant='p'>Sehr Unzufrieden</Typography>
+                </Box>
             </CardContent>
         </Card>
     )
