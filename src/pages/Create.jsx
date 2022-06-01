@@ -49,7 +49,7 @@ const Create = () => {
                 "questions": questions
             })
         };
-        fetch('/api/poll', options).then(res => res.text()).then(() => {
+        fetch('/api/poll', options).then(res => res.text()).then(res => {
             alert(res);
             navigate('/poll');
         });

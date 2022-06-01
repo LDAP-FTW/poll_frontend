@@ -52,13 +52,7 @@ const Evaluation = () => {
         labels: ['1', '2', '3', '4', '5'],
         datasets: evalData.map((qEval, index) => ({
             label: qEval.question.text,
-            data: [
-                qEval.answers["1"] / qEval.answerCount * 100,
-                qEval.answers["2"] / qEval.answerCount * 100,
-                qEval.answers["3"] / qEval.answerCount * 100,
-                qEval.answers["4"] / qEval.answerCount * 100,
-                qEval.answers["5"] / qEval.answerCount * 100
-            ],
+            data: [1,2,3,4,5].map(id => qEval.answers[`${id}`] / qEval.answerCount * 100),
             backgroundColor: colors[index % colors.length].hex,
         }))
     };
