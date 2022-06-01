@@ -6,7 +6,6 @@ import PollList from "./PollList";
 import Evaluation from "./Evaluation";
 import EvalPollList from "./EvalPollList";
 import Create from "./Create";
-import RenderEvalPDF from "../components/RenderEvalPDF";
 
 const Home = () => {
     return (
