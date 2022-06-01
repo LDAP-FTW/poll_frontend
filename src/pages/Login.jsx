@@ -5,8 +5,8 @@ import { useSignIn } from "react-auth-kit";
 
 const Login = () => {
 
-    const [username, setUsername] = useState();
-    const [password, setPassword] = useState();
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
 
     const signIn = useSignIn();
     const navigate = useNavigate();

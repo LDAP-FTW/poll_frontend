@@ -18,6 +18,7 @@ const PollList = () => {
 
     return (
         <Grid>
+            <Typography variant='h4'>Umfragen</Typography>
             {polls && Object.entries(polls).map(([id, poll]) =>
                 <Card sx={{ my: 2, cursor: "pointer" }} onClick={() => choosePoll(id)} key={id}>
                     <CardContent>
