@@ -43,7 +43,7 @@ const Login = () => {
     return (
         <Container>
             <Input placeholder="Username" value={username} onChange={e => setUsername(e.target.value)}></Input>
-            <Input placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} type="password"></Input>
+            <Input onKeyDown={(e) => {if (e.key == 13) {login(e)}}} placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} type="password"></Input>
             <Button variant="outlined" onClick={login}>Okay</Button>
         </Container>
     )
