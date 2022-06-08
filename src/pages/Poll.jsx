@@ -6,25 +6,29 @@ import Question from '../components/Question';
 
 const Poll = () => {
     const [poll, setPoll] = useState();
-    const [answers, setAnswers] = useState();
+    const [answers, setAnswers] = useState([]);
     const { pollID } = useParams();
     const auth = useAuthUser();
     const navigate = useNavigate();
 
     const uploadAnswer = () => {
-        const options = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                "poll": pollID,
-                "user": auth().user.username,
-                "answers": answers
-            })
+        if(answers.every(answer => answer.answer !== "")) {
+            const options = {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    "poll": pollID,
+                    "user": auth().user.username,
+                    "answers": answers
+                })
+            }
+    
+            fetch("/api/answers", options).then(res => res.ok).then(status => {alert(status); navigate(-1)});
+        } else {
+            alert("Nicht alle Fragen wurden beantwortet")
         }
-
-        fetch("/api/answers", options).then(res => res.ok).then(status => {alert(status); navigate(-1)});
     }
 
     const updateAnswers = (question, value) => {

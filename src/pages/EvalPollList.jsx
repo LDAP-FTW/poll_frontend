@@ -13,7 +13,7 @@ const PollList = () => {
     }
 
     useEffect(() => {
-        fetch("/api/poll").then(res => res.json()).then(polls => setPolls(polls))
+        fetch("/api/poll/expired").then(res => res.json()).then(polls => setPolls(polls))
     }, [])
 
     return (

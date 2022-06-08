@@ -16,7 +16,7 @@ import { useAuthUser, useSignOut } from 'react-auth-kit';
 import { useNavigate } from 'react-router-dom';
 
 const pages = [{'title': 'Umfragen', 'link': 'poll'}, {'title': 'Erstellen', 'link': 'poll/create'}, {'title': 'Auswertung', 'link': 'poll/eval'}];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = [/* 'Profile', 'Account', 'Dashboard', */ 'Logout'];
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);

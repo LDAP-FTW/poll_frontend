@@ -8,6 +8,7 @@ import {
 import Login from './pages/Login';
 import { createTheme, ThemeProvider } from '@mui/material';
 import Home from './pages/Home';
+import Register from './pages/Register';
 
 const App = () => {
 
@@ -22,6 +23,7 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
           <Route path='*' element={
             <RequireAuth loginPath='/login'>
               <Home />

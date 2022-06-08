@@ -49,7 +49,7 @@ const DragDropList = ({ list, setList }) => {
                             <Draggable key={id} draggableId={`${id}`} index={id}>
                                 {(provided) =>
                                     <Box
-                                        sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between", gap: "15px", alignItems: "center", background: "black", mb: 2 }}
+                                        sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between", gap: "15px", alignItems: "center", mb: 2 }}
                                         ref={provided.innerRef}
                                         {...provided.draggableProps}
                                         {...provided.dragHandleProps}
